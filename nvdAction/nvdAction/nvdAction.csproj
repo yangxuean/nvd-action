@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86586CE6-DA31-4B04-B00D-4EA2B29973AE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>nvidiaProfileInspector</RootNamespace>
+    <AssemblyName>nvdaction</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminHelper.cs" />
+    <Compile Include="CachedSettingValue.cs" />
+    <Compile Include="Cache\CachedSettings.cs" />
+    <Compile Include="CustomSettingMetaService.cs" />
+    <Compile Include="CustomSettings\CustomSetting.cs" />
+    <Compile Include="CustomSettings\CustomSettingNames.cs" />
+    <Compile Include="CustomSettings\CustomSettingValue.cs" />
+    <Compile Include="DriverSettingMetaService.cs" />
+    <Compile Include="DrsDecrypterService.cs" />
+    <Compile Include="DrsImportService.cs" />
+    <Compile Include="DrsScannerService.cs" />
+    <Compile Include="DrsServiceLocator.cs" />
+    <Compile Include="DrsSessionScope.cs" />
+    <Compile Include="DrsSettingsMetaService.cs" />
+    <Compile Include="DrsSettingsService.cs" />
+    <Compile Include="DrsSettingsServiceBase.cs" />
+    <Compile Include="DrsUtil.cs" />
+    <Compile Include="Helper\XMLHelper.cs" />
+    <Compile Include="Import\Profile.cs" />
+    <Compile Include="Import\Profiles.cs" />
+    <Compile Include="Import\ProfileSetting.cs" />
+    <Compile Include="Meta\ConstantSettingMetaService.cs" />
+    <Compile Include="Meta\ISettingMetaService.cs" />
+    <Compile Include="Meta\MetaServiceItem.cs" />
+    <Compile Include="Meta\SettingMeta.cs" />
+    <Compile Include="Meta\SettingMetaSource.cs" />
+    <Compile Include="Meta\SettingValue.cs" />
+    <Compile Include="Native\NVAPI\NativeArrayHelper.cs" />
+    <Compile Include="Native\NVAPI\NvApiDriverSettings.cs" />
+    <Compile Include="Native\NVAPI\NvapiDrsWrapper.cs" />
+    <Compile Include="NvapiException.cs" />
+    <Compile Include="NvD3dUmxSettingMetaService.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ScannedSettingMetaService.cs" />
+    <Compile Include="SettingItem.cs" />
+    <Compile Include="SettingViewMode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Native\WINAPI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CustomSettingNames.xml" />
+    <Content Include="Reference.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
