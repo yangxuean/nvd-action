@@ -730,6 +730,10 @@ namespace nspector.Native.NVAPI2
                     }
                 }
             }
+            else
+            {
+                Environment.Exit(0);
+            }
         }
     }
 
